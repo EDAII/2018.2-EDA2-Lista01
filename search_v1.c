@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-#include <sys/timeb.h>
 #define CLK_PER_SEC 100000
 #define MAX_VALOR 10000
 #define NUM_ELEMENTS 100000
@@ -35,9 +34,9 @@ int main(){
 
   int wanted_number = 5;
 
-  clock_t time_begin = (clock()/CLK_PER_SEC);
+  // clock_t time_begin = (clock()/CLK_PER_SEC);
   int result = vector_sequecial_search(wanted_number, vector, NUM_ELEMENTS);
-  clock_t time_end = (clock()/CLK_PER_SEC);
+  // clock_t time_end = (clock()/CLK_PER_SEC);
 
 
   if (result != -1)
