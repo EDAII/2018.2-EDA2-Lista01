@@ -1,48 +1,52 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include "vector.c"
 #define CLK_PER_SEC 100000
 #define MAX_VALOR 10000
 #define NUM_ELEMENTS 100000
 
+//BUSCA SEQUENCIAL COM SENTINELA
 int vector_sequecial_search(int wanted_number, int *numbers_vector, int vector_size){
+
   int i;
   numbers_vector[vector_size] = wanted_number;
+
   for(i=0; numbers_vector[i] != wanted_number; i++);
+
   if(i < vector_size)
     return i;
   else
     return -1;
 }
 
-int *vector_generator(int number_elements){
-  int i;
-  int *vector = malloc(sizeof(int) * NUM_ELEMENTS);
-  srand(time(NULL));
-  for(i=0; i < number_elements; i++){
-     // vector[i] = rand()%5;
-     // printf("%d\n", vector[i]);
-     vector[i] = i+1;
-  }
-  return vector;
+void search_case(char *text, int wanted_number, int *vector, int vector_size){
+  clock_t start, end;
+
+  start = clock();
+  int result = vector_sequecial_search(wanted_number, vector, vector_size);
+  end = clock();
+
+  printf("%s\n", text);
+  if (result != -1)
+    printf("O número desejado está na posição: %d\n", result);
+  else
+    printf("Número não encontrado\n");
+  printf("Tempo de execução da busca: %lfs\n", (double)(end - start)/CLOCKS_PER_SEC);
+  printf("------------------\n");
 }
 
 int main(){
-  char * timer_display;
 
-  int* vector = vector_generator(NUM_ELEMENTS);
+  int* vector = vector_generator(NUM_ELEMENTS, MAX_VALOR);
+  int wanted_number;
 
-  int wanted_number = 5;
+  printf("Insira o número desejado: ");
+  scanf("%d", &wanted_number);
+  printf("------------------\n");
 
-  // clock_t time_begin = (clock()/CLK_PER_SEC);
-  int result = vector_sequecial_search(wanted_number, vector, NUM_ELEMENTS);
-  // clock_t time_end = (clock()/CLK_PER_SEC);
-
-
-  if (result != -1)
-    printf("esta na posição : %d\n tempo de execução : %lf \n", result, (double)(time_end - time_begin));
-  else
-    printf("nao deu\n");
-
+  search_case("Busca do valor inserido pelo usuário", wanted_number, vector, NUM_ELEMENTS);
+  search_case("Melhor Caso: valor é o primeiro digito do vetor", vector[0], vector, NUM_ELEMENTS);
+  search_case("Pior Caso: valor não está no vetor", -1, vector, NUM_ELEMENTS);
   return 0;
 }
