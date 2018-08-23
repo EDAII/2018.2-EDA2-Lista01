@@ -36,11 +36,11 @@ int* set_vector(int search_option){
         scanf("%d", &vector_option);
         if (vector_option == 1)
         {
-          return vector = oriented_vector_generator(NUM_ELEMENTS, MAX_VALOR);
+          return oriented_vector_generator(NUM_ELEMENTS, MAX_VALOR);
         }
         else if (vector_option == 2)
         {
-          return vector = aleatory_vector_generator(NUM_ELEMENTS, MAX_VALOR);
+          return aleatory_vector_generator(NUM_ELEMENTS, MAX_VALOR);
         }
         else
         {
@@ -48,11 +48,27 @@ int* set_vector(int search_option){
         }
       }
     }
+    else
+    {
+      return oriented_vector_generator(NUM_ELEMENTS, MAX_VALOR);
+    }
 }
 
 void run_search_choice(int search_option, int wanted_number, int *vector)
 {
-    make_sequential_search_cases(wanted_number, vector, NUM_ELEMENTS);
+    if (search_option == 1)
+    {
+      make_sequential_search_cases(wanted_number, vector, NUM_ELEMENTS);
+    }
+    else if (search_option == 2)
+    {
+      make_binary_search_cases(wanted_number, vector, NUM_ELEMENTS);
+    }
+    else
+    {
+      make_sequential_search_cases(wanted_number, vector, NUM_ELEMENTS);
+    }
+
 }
 
 int main(){
