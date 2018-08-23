@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-
+// BUSCA BINARIA 
 int do_vector_binary_search(int wanted_number, int vector[], int max_index, int min_index )
 {
       // Retorno para melhor scenario onde o vetor possui somente um elemento
