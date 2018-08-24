@@ -77,9 +77,9 @@ int main(){
       system("clear");
       show_menu();
       scanf("%d", &search_option);
-    }
-    if (search_option == 0) {
-      return 0;
+      if (search_option == 0) {
+        return 0;
+      }
     }
 
     int *vector = set_vector(search_option);
