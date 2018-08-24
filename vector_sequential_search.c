@@ -35,6 +35,8 @@ void show_sequential_search_case(char *text, int wanted_number, int *vector, int
 void make_sequential_search_cases(int wanted_number, int *vector, int vector_size)
 {
     system("clear");
+    printf("RESULTADOS BUSCA SEQUENCIAL\n");
+    printf("------------------\n");
     show_sequential_search_case("Busca do valor inserido pelo usuário", wanted_number, vector, vector_size);
     show_sequential_search_case("Melhor Caso: valor é o primeiro digito do vetor", vector[0], vector, vector_size);
     show_sequential_search_case("Pior Caso: valor não está no vetor", -1, vector, vector_size);

@@ -66,7 +66,7 @@ void run_search_choice(int search_option, int wanted_number, int *vector)
     }
     else
     {
-      make_sequential_search_cases(wanted_number, vector, NUM_ELEMENTS);
+      make_interpolation_search_cases(wanted_number, vector, NUM_ELEMENTS);
     }
 
 }

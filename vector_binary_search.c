@@ -64,6 +64,8 @@ void show_binary_search_case(char *text, int wanted_number, int *vector, int vec
 void make_binary_search_cases(int wanted_number, int *vector, int vector_size)
 {
     system("clear");
+    printf("RESULTADOS BUSCA BINARIA\n");
+    printf("------------------\n");
 
     // Caso de busca por valor inserido pelo usuario
 
@@ -72,9 +74,9 @@ void make_binary_search_cases(int wanted_number, int *vector, int vector_size)
     // No melhor caso o elemento buscado estara no meio do vector
 
     int mid =  vector[(vector_size/2)];
-    show_binary_search_case("Melhor Caso: valor é o primeiro digito do vetor", mid, vector, vector_size);
+    show_binary_search_case("Melhor Caso: valor é o elemento do meio do vetor", mid, vector, vector_size);
 
     // Pior caso é quando o elemento não esta presente no vetor e é menor que todos seus elementos
 
-    show_binary_search_case("Pior Caso: valor não está no vetor", -1, vector, vector_size);
+    show_binary_search_case("Pior Caso: valor não está no vetor", 9999999, vector, vector_size);
 }
